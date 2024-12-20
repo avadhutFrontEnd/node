@@ -4,15 +4,15 @@
 
 // app.js
 
-var sayHello = function() {
+// var sayHello = function() {
 
-}
+// }
 
-window.sayHello();
+// window.sayHello();
 
 
 
 console.log(module);
 
 // #_Note : this  `module`  is not a "global" object.
-console.log(global.module); // <------- Wrong
+// console.log(global.module); // <------- Wrong
