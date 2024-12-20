@@ -1,48 +1,18 @@
 
-// app.js 
-// Node :
+// Client Side JavaScript :
+// Browser Environmnet :
 
-// ************** Functions that are "globally" available in "Node" *****
-// this Functions are "part of the standard JavaScript". We can use this on the client. We can use this inside of a Browser or inside of Node.
+// app.js
 
+var sayHello = function() {
 
-console.log() // "global" object
+}
 
-setTimeout()
-clearTimeout()
-setInterval()
-clearInterval()
+window.sayHello();
 
 
 
-// Browser Specific objects e.g "window" object.
+console.log(module);
 
-// in JavaScript of the "Browser" :
-
-// we have `window` object that `represents our global scope`.
-
-window.console.log();
-console.log();
-
-window.setTimeout();
-
-var messaage = '';
-window.messaage
-
-
-
-// Node Specific objects e.g "global" object.
-
-// 1. in Node Instead of "window" we have "global" object.
-
-// Use "global" :
-global.setTimeout();
-
-// use directly :
-setTimeout();
-
-
-
-var message = '' // <---- "message" variable that we define here, they are not added to the "global" object
-
-console.log(global.message);
+// #_Note : this  `module`  is not a "global" object.
+console.log(global.module); // <------- Wrong
