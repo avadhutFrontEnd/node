@@ -1,18 +1,10 @@
-
-// Client Side JavaScript :
-// Browser Environmnet :
-
 // app.js
 
-// var sayHello = function() {
-
-// }
-
-// window.sayHello();
+// const logger = require('./logger');
+const log = require('./logger');
 
 
+// logger = 1; // <---- we can't re-Assign value to constant variable
 
-console.log(module);
-
-// #_Note : this  `module`  is not a "global" object.
-// console.log(global.module); // <------- Wrong
+// logger.log('message');
+log('message');
