@@ -2,7 +2,7 @@
 Node project repo `node` 
 
 # Commit message format : 
-[Course: The Complete Node js Course > 3-Node Package Manager(48m) ] [ Video: #15-Publishing-a-Package_mp4_4m_32s ] - 
+[Course: The Complete Node js Course > 3-Node Package Manager(48m) ] [ Video: #16-Updating-a-Published-Package_mp4_1m55s ] - 
 
 
 # my-github Account : 
