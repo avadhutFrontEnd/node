@@ -2,7 +2,7 @@
 Node project repo `node`
 
 # Commit message format : 
-[Course: The Complete Node js Course > 2-Node Module System(1h) ] [ Video: #6-Module-Wrapper-Function_mp4_4m_40s ] -
+[Course: The Complete Node js Course > 2-Node Module System(1h) ] [ Video: #7-Path-Module_mp4_4m_08s ] -
 
 
 # my-github Account : 

@@ -1,10 +1,9 @@
-// app.js
+const path = require('path'); // <---  Node assumes that this is a "Built-in Modules"
 
-// const logger = require('./logger');
-const log = require('./logger');
+// require('../path') // <----- Node assumes that this is a File in this Application
+
+const pathObj = path.parse(__filename);
+
+console.log(pathObj);
 
 
-// logger = 1; // <---- we can't re-Assign value to constant variable
-
-// logger.log('message');
-log('message');
