@@ -1,16 +1,18 @@
 // app.js
 
 const EventEmitter = require('events');
-const emitter = new EventEmitter();
+
+//  load the "logger" module --> call "Logger" class --> create new "logger" Object 
+const Logger = require('./logger');
+const logger = new Logger(); // <------- "logger" object
+
 
 // **************** Register a "listener" :
-// emitter.addListener(); // <-- But we have an alias for this that is "on"
-emitter.on('messageLogged',  (arg) => {
+// register this "listener" on this "logger" object :
+logger.on('messageLogged', (arg) => {
 	console.log('Listener called', arg);
 });
 
 
-// **************** Raise an "event" :
-emitter.emit('messageLogged', { id: 1, url: 'http://' });
-
-// Making a noise, produce a signal --> Signalling 
+// on this "logger" Object we have "log" Function, call that "log" Function :
+logger.log('message');
