@@ -1,18 +1,24 @@
 // app.js
 
-const EventEmitter = require('events');
+const http = require("http");
 
-//  load the "logger" module --> call "Logger" class --> create new "logger" Object 
-const Logger = require('./logger');
-const logger = new Logger(); // <------- "logger" object
+const server = http.createServer((req, res) => {
+  // work with the actual "request" or "response" objects
+  if (req.url === "/") {
+    res.write("Hello World");
+    res.end();
+  }
 
-
-// **************** Register a "listener" :
-// register this "listener" on this "logger" object :
-logger.on('messageLogged', (arg) => {
-	console.log('Listener called', arg);
+  if (req.url === "/api/courses") {
+    res.write(JSON.stringify([1, 2, 3]));
+    res.end();
+  }
 });
 
+// server.on('connection', (socket) => {
+// 	console.log('New connection....');
+// });
 
-// on this "logger" Object we have "log" Function, call that "log" Function :
-logger.log('message');
+server.listen(3000);
+
+console.log("Listening on port 3000....");
