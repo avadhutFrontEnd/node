@@ -1,12 +1,14 @@
 // app.js
 
-const os = require('os');
+// ****************** readdir() --> Synchronous ****************
+const fs = require("fs");
 
-var totalMemory = os.totalmem();
-var freeMemory = os.freemem();
+const files = fs.readdirSync("./");
+// console.log(files);
 
-// Template string
-// ES6 / ES2015: ECMAScript 6
 
-console.log(`Total Memory: ${totalMemory}`);
-console.log(`Free Memory: ${freeMemory}`);
+// ****************** readdir() --> Asynchronous ****************
+fs.readdir("./", function (err, files) {
+  if (err) console.log("Error", err);
+  else console.log("Result", files);
+});
