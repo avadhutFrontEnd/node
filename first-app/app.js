@@ -1,9 +1,12 @@
-const path = require('path'); // <---  Node assumes that this is a "Built-in Modules"
+// app.js
 
-// require('../path') // <----- Node assumes that this is a File in this Application
+const os = require('os');
 
-const pathObj = path.parse(__filename);
+var totalMemory = os.totalmem();
+var freeMemory = os.freemem();
 
-console.log(pathObj);
+// Template string
+// ES6 / ES2015: ECMAScript 6
 
-
+console.log(`Total Memory: ${totalMemory}`);
+console.log(`Free Memory: ${freeMemory}`);
