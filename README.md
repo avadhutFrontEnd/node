@@ -2,7 +2,7 @@
 Node project repo `node` 
 
 # Commit message format : 
-[Course: The Complete Node js Course > 4-Building RESTful API's Using Express(56m) ] [ Video: #4-Building-Your-First-Web-Server_mp4_5m_45s ] - 
+[Course: The Complete Node js Course > 4-Building RESTful API's Using Express(56m) ] [ Video: #6-Environment-Variables_mp4_3m_13s ] - 
 
 
 # my-github Account : 
