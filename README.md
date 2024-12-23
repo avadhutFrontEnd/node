@@ -2,7 +2,7 @@
 Node project repo `node` 
 
 # Commit message format : 
-[Course: The Complete Node js Course > 4-Building RESTful API's Using Express(56m) ] [ Video: #7-Route-Parameters_mp4_3m_22s ] - How to read `Route-Parameters` and `Query String Parameters`.
+[Course: The Complete Node js Course > 4-Building RESTful API's Using Express(56m) ] [ Video: #8-Handling-HTTP-GET-Requests_mp4_4m_45s ] - implement a new endpoint to `GET` a single course from the server.
 
 
 # my-github Account : 
