@@ -2,7 +2,7 @@
 Node project repo `node` 
 
 # Commit message format : 
-[Course: The Complete Node js Course > 4-Building RESTful API's Using Express(56m) ] [ Video: #9-Handling-HTTP-POST-Requests_mp4_3m_42s ] - implement a new `GET` endpoint to `create a new course`.
+[Course: The Complete Node js Course > 4-Building RESTful API's Using Express(56m) ] [ Video: #11-Input-Validation_mp4_7m_58s ] - How to do input validation using `Joi`.
 
 
 # my-github Account : 

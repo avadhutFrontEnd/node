@@ -1,5 +1,5 @@
 // index.js
-
+const Joi = require("joi");
 const express = require("express");
 const app = express();
 
@@ -26,6 +26,19 @@ app.get("/api/courses", (req, res) => {
 });
 
 app.post("/api/courses", (req, res) => {
+  const schema = Joi.object({
+    name: Joi.string().min(3).required(),
+  });
+
+  // Validate using schema.validate() instead of Joi.validate()
+  const result = schema.validate(req.body);
+
+  if (result.error) {
+    // 400 Bad Request
+    res.status(400).send(result.error.details[0].message);
+    return;
+  }
+
   const course = {
     id: courses.length + 1,
     name: req.body.name,
