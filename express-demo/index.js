@@ -1,22 +1,33 @@
 // index.js
+const morgan = require("morgan");
+const helmet = require("helmet");
 const Joi = require("joi");
 const logger = require("./logger");
 const express = require("express");
 const app = express();
 
 // Built-in Middleware Functions :
-// 1st : 
+// 1st :
 app.use(express.json());
 // 2nd :
 app.use(express.urlencoded({ extended: true })); // key=value&key=value
 // 3rd :
-app.use(express.static('public'));
+app.use(express.static("public"));
 
+
+// Third-party-Middleware Functions :
+// 1st :
+app.use(helmet());
+// 2nd :
+app.use(morgan("tiny"));
+
+
+// Custom-Middleware Functions :
 app.use(logger);
 
-app.use(function(req, res, next){
-	console.log('Authenticating...');
-	next();
+app.use(function (req, res, next) {
+  console.log("Authenticating...");
+  next();
 });
 
 const courses = [
@@ -57,13 +68,13 @@ app.put("/api/courses/:id", (req, res) => {
   // Look up the course
   // If not existing, return 404
   const course = courses.find((c) => c.id === parseInt(req.params.id));
-  if (!course) return res.status(404).send("The course with the given ID was not found.");
+  if (!course)
+    return res.status(404).send("The course with the given ID was not found.");
 
   // Validate
   const { error } = validateCourse(req.body);
   // If invalid, return 400 - Bad request
   if (error) return res.status(400).send(error.details[0].message);
-    
 
   // Update course
   course.name = req.body.name;
@@ -75,7 +86,8 @@ app.delete("/api/courses/:id", (req, res) => {
   // Look up the course
   const course = courses.find((c) => c.id === parseInt(req.params.id));
   // Not existing, return 404
-  if (!course) return res.status(404).send("The course with the given ID was not found.");
+  if (!course)
+    return res.status(404).send("The course with the given ID was not found.");
 
   // Delete
   const index = courses.indexOf(course);
@@ -95,7 +107,8 @@ function validateCourse(course) {
 
 app.get("/api/courses/:id", (req, res) => {
   const course = courses.find((c) => c.id === parseInt(req.params.id));
-  if (!course) return res.status(404).send("The course with the given ID was not found.");
+  if (!course)
+    return res.status(404).send("The course with the given ID was not found.");
   res.send(course);
 });
 
