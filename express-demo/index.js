@@ -4,7 +4,13 @@ const logger = require("./logger");
 const express = require("express");
 const app = express();
 
+// Built-in Middleware Functions :
+// 1st : 
 app.use(express.json());
+// 2nd :
+app.use(express.urlencoded({ extended: true })); // key=value&key=value
+// 3rd :
+app.use(express.static('public'));
 
 app.use(logger);
 
