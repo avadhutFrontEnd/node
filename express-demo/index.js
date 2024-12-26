@@ -6,6 +6,9 @@ const logger = require("./logger");
 const express = require("express");
 const app = express();
 
+// console.log(`NODE_ENV: ${process.env.NODE_ENV}`); 
+// console.log(`app: ${app.get('env')}`);
+
 // Built-in Middleware Functions :
 // 1st :
 app.use(express.json());
@@ -21,6 +24,11 @@ app.use(helmet());
 // 2nd :
 app.use(morgan("tiny"));
 
+
+if (app.get('env') === 'development') {
+  app.use(morgan('tiny'));
+  console.log('Morgan enabled...');
+}
 
 // Custom-Middleware Functions :
 app.use(logger);
