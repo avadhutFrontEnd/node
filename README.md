@@ -2,7 +2,7 @@
 Node project repo `node` 
 
 # Commit message format : 
-[Course: The Complete Node js Course > 5-Express Advanced Topics(54m) ] [ Video: #7-Configuration_mp4_9m_45s ] - 
+[Course: The Complete Node js Course > 5-Express Advanced Topics(54m) ] [ Video: #8-Debugging_mp4_6m54s ] - 
 
 
 # my-github Account : 
