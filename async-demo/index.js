@@ -1,9 +1,18 @@
-// index.js
 
-console.log('Before');
+console.log("Before");
+const user = getUser(1); // <----------  How can we access this "user" object in the main program here ?    
+console.log(user);
+console.log("After");
 
-setTimeout(() => {
-  console.log('Reading a user from a database...');
-}, 2000);
+// callbacks
+// promises
+// async & await 
 
-console.log('After');
+function getUser(id) {
+  setTimeout(() => {
+    console.log("Reading a user from a database...");
+    return { id: id, gitHubUsername: "mosh" };
+  }, 2000);
+
+  return 1;
+}
