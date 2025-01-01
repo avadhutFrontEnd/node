@@ -2,7 +2,7 @@
 Node project repo `node` 
 
 # Commit message format : 
-[Course: The Complete Node js Course > 6-Asynchronous JavaScript(1h) ] [ Video: #4-Callback-Hell_mp4_2m_27s ] - 
+[Course: The Complete Node js Course > 6-Asynchronous JavaScript(1h) ] [ Video: #5-Named-Functions-to-Rescue_mp4_4m_41s ] - 
 
 
 # my-github Account : 
