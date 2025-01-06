@@ -2,7 +2,7 @@
 Node project repo `node` 
 
 # Commit message format : 
-[Course: The Complete Node js Course > 6-Asynchronous JavaScript(1h) ] [ Video: #10-Running-Promises-in-Parallel_mp4_6m_14s ] - `Promise.all` and `Promise.race`.
+[Course: The Complete Node js Course > 6-Asynchronous JavaScript(1h) ] [ Video: #11-Async-and-Await_mp4_6m_55s ] - `async` and `await`.
 
 
 # my-github Account : 
