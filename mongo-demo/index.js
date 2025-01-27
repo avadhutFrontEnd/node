@@ -52,9 +52,18 @@ async function getCourses() {
     // *********** Logical Query Operators :
     // or
     // and
-    .find()
-    .or([{ author: "Mosh" }, { isPublished: true }])
-    .and([ ])
+    // .find()
+    // .or([{ author: "Mosh" }, { isPublished: true }])
+    // .and([ ])
+    // *********** Regular Expressions : 
+    // -----> get courses whose author Starts with Mosh
+    // .find({ author: /^Mosh/ })
+    // -----> get courses whose author Ends with Hamedani
+    // .find({ author: /Hamedani$/ }) // <-- case sensitive
+    // .find({ author: /Hamedani$/i }) // <-- case In-sensitive
+    // -----> get courses whose author contains the word Mosh 
+    // .find({ author: /.*Mosh.*/ }) // <-- case sensitive 
+    .find({ author: /.*Mosh.*/i }) // <-- case In-sensitive
     .limit(10)
     .sort({ name: 1 })
     .select({ name: 1, tags: 1 });
