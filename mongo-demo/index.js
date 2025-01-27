@@ -33,6 +33,9 @@ async function createCourse() {
 // createCourse();
 
 async function getCourses() {
+  const pageNumber = 2;
+  const pageSize = 10;
+
   // eq (equal)
   // ne (not equal)
   // gt (greater than)
@@ -43,7 +46,7 @@ async function getCourses() {
   // nin (not in)
 
   const courses = await Course
-    // .find({ author: "Mosh", isPublished: true })
+    .find({ author: "Mosh", isPublished: true })
     // .find({ price: 10 })
     // *********** Comparison Operators :
     // .find({ price: { $gt: 10 } })
@@ -55,19 +58,22 @@ async function getCourses() {
     // .find()
     // .or([{ author: "Mosh" }, { isPublished: true }])
     // .and([ ])
-    // *********** Regular Expressions : 
+    // *********** Regular Expressions :
     // -----> get courses whose author Starts with Mosh
     // .find({ author: /^Mosh/ })
     // -----> get courses whose author Ends with Hamedani
     // .find({ author: /Hamedani$/ }) // <-- case sensitive
     // .find({ author: /Hamedani$/i }) // <-- case In-sensitive
-    // -----> get courses whose author contains the word Mosh 
-    // .find({ author: /.*Mosh.*/ }) // <-- case sensitive 
-    .find({ author: /.*Mosh.*/i }) // <-- case In-sensitive
-    .limit(10)
+    // -----> get courses whose author contains the word Mosh
+    // .find({ author: /.*Mosh.*/ }) // <-- case sensitive
+    // .find({ author: /.*Mosh.*/i }) // <-- case In-sensitive
+    // *********** Pagination :
+    .skip((pageNumber - 1) * pageSize)
+    // .limit(10)
+    .limit(pageSize)
     .sort({ name: 1 })
-    // .select({ name: 1, tags: 1 });
-    .countDocuments();
+    .select({ name: 1, tags: 1 });
+  // .countDocuments();
   console.log(courses);
 }
 
