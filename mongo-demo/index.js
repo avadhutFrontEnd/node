@@ -66,7 +66,8 @@ async function getCourses() {
     .find({ author: /.*Mosh.*/i }) // <-- case In-sensitive
     .limit(10)
     .sort({ name: 1 })
-    .select({ name: 1, tags: 1 });
+    // .select({ name: 1, tags: 1 });
+    .countDocuments();
   console.log(courses);
 }
 
