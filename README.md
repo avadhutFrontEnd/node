@@ -2,7 +2,7 @@
 Node project repo `node` 
 
 # Commit message format : 
-[Course: The Complete Node js Course > 7-CRUD operations using mongoose(1h) ] [ Video: #15-Exercise-2_mp4_4m_34s ] - 
+[Course: The Complete Node js Course > 7-CRUD operations using mongoose(1h) ] [ Video: #16-Exercise-3_mp4_3m_19s ] - 
 
 
 # my-github Account : 
