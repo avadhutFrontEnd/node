@@ -77,4 +77,37 @@ async function getCourses() {
   console.log(courses);
 }
 
-getCourses();
+// getCourses();
+
+
+
+// **************  #17-Updating-a-Document-Query-First_mp4_3m_35s
+async function updateCourse(id) {
+  // 1st Approach: Query First
+  // findById()
+  // Modify its properties
+  // save()
+  const course = await Course.findById(id);
+  if (!course) return;
+
+  course.isPublished = true;
+  course.author = "Another Author";
+
+  // course.set({
+  //   isPublished: true,
+  //   author: "Another Author",
+  // });
+
+  const result = await course.save();
+  console.log(result);
+}
+
+updateCourse('67944c5e8849f9de893ad160');
+
+
+
+
+
+
+
+
