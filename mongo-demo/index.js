@@ -106,13 +106,30 @@ async function updateCourse(id) {
   // 2nd Approach: Update First
   // Update directly
   // Optionally: get the updated document
-  const course = await Course.findByIdAndUpdate(id, {
-    $set: {
-      author: "Jack",
-      isPublished: false,
+  const course = await Course.findByIdAndUpdate(
+    id,
+    {
+      $set: {
+        author: "Jack",
+        isPublished: false,
+      },
     },
-  }, { new: false });
+    { new: false }
+  );
   console.log(course);
 }
 
-updateCourse("67944d2fa68106be7f55e806");
+// updateCourse("67944d2fa68106be7f55e806");
+
+// **************  #19-Removing-Documents_mp4_2m_38s
+async function removeCourse(id) {
+  // const result = await Course.deleteOne({ _id: id });
+  const course = await Course.findByIdAndDelete(id);
+  console.log(course);
+}
+
+removeCourse("67944d2fa68106be7f55e806");
+
+
+
+
