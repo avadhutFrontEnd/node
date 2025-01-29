@@ -45,8 +45,7 @@ async function getCourses() {
   // in
   // nin (not in)
 
-  const courses = await Course
-    .find({ author: "Mosh", isPublished: true })
+  const courses = await Course.find({ author: "Mosh", isPublished: true })
     // .find({ price: 10 })
     // *********** Comparison Operators :
     // .find({ price: { $gt: 10 } })
@@ -79,8 +78,6 @@ async function getCourses() {
 
 // getCourses();
 
-
-
 // **************  #17-Updating-a-Document-Query-First_mp4_3m_35s
 async function updateCourse(id) {
   // 1st Approach: Query First
@@ -102,12 +99,20 @@ async function updateCourse(id) {
   console.log(result);
 }
 
-updateCourse('67944c5e8849f9de893ad160');
+// updateCourse('67944c5e8849f9de893ad160');
 
+// **************  #18--Updating-a-Document-Update-First_mp4_6m_14s
+async function updateCourse(id) {
+  // 2nd Approach: Update First
+  // Update directly
+  // Optionally: get the updated document
+  const course = await Course.findByIdAndUpdate(id, {
+    $set: {
+      author: "Jack",
+      isPublished: false,
+    },
+  }, { new: false });
+  console.log(course);
+}
 
-
-
-
-
-
-
+updateCourse("67944d2fa68106be7f55e806");
