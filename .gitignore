@@ -1,0 +1,28 @@
+lion-lib/node_modules/
+node-app/node_modules/
+npm-demo/node_modules/
+
+# For "04-building-restful-apis-express-56m" Branch :
+lion-lib/
+node-app/
+npm-demo/
+express-demo/node_modules/
+
+
+# For "06-asynchronous-javascript-1h" Branch :
+lion-lib/
+node-app/
+npm-demo/
+express-demo/
+async-demo/node_modules/
+
+
+# For "07-crud-operations-mongoose-1h" Branch :
+lion-lib/
+node-app/
+npm-demo/
+express-demo/
+async-demo/
+mongo-demo/node_modules/  
+
+
