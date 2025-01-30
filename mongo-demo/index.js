@@ -17,6 +17,10 @@ const courseSchema = new mongoose.Schema({
     type: String,
     required: true,
     enum: ["web", "mobile", "network"],
+    lowercase: true,
+    // uppercase: true,
+    trim: true
+
   },
   author: String,
   tags: {
@@ -42,6 +46,8 @@ const courseSchema = new mongoose.Schema({
     },
     min: 10,
     max: 200,
+    get: v => Math.round(v),
+    set: v => Math.round(v),
   },
 });
 
@@ -54,11 +60,11 @@ async function createCourse() {
     // we pass an "object" to initialize our "course" object
 
     name: "Angular Course",
-    category: "-",
+    category: "Web",
     author: "Mosh",
-    tags: null,
+    tags: ['frontend'],
     isPublished: true,
-    price: 15,
+    price: 15.8,
   });
 
   try {
@@ -70,7 +76,7 @@ async function createCourse() {
   }
 }
 
-createCourse();
+// createCourse();
 
 async function getCourses() {
   const pageNumber = 2;
@@ -85,7 +91,9 @@ async function getCourses() {
   // in
   // nin (not in)
 
-  const courses = await Course.find({ author: "Mosh", isPublished: true })
+  const courses = await Course
+  // .find({ author: "Mosh", isPublished: true })
+  .find({ _id: '679b87e58c784d5c5dd1887d'})
     // .find({ price: 10 })
     // *********** Comparison Operators :
     // .find({ price: { $gt: 10 } })
@@ -107,16 +115,16 @@ async function getCourses() {
     // .find({ author: /.*Mosh.*/ }) // <-- case sensitive
     // .find({ author: /.*Mosh.*/i }) // <-- case In-sensitive
     // *********** Pagination :
-    .skip((pageNumber - 1) * pageSize)
+    // .skip((pageNumber - 1) * pageSize)
     // .limit(10)
-    .limit(pageSize)
+    // .limit(pageSize)
     .sort({ name: 1 })
-    .select({ name: 1, tags: 1 });
+    .select({ name: 1, tags: 1, price: 1 });
   // .countDocuments();
-  console.log(courses);
+  console.log(courses[0].price);
 }
 
-// getCourses();
+getCourses();
 
 // **************  #17-Updating-a-Document-Query-First_mp4_3m_35s
 async function updateCourse(id) {
