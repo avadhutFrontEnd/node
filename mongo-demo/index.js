@@ -22,7 +22,7 @@ const courseSchema = new mongoose.Schema({
   tags: {
     type: Array,
     validate: {
-      validator: function(v) {
+      validator: function (v) {
         return new Promise((resolve) => {
           setTimeout(() => {
             const result = v && v.length > 0;
@@ -54,7 +54,7 @@ async function createCourse() {
     // we pass an "object" to initialize our "course" object
 
     name: "Angular Course",
-    category: "web",
+    category: "-",
     author: "Mosh",
     tags: null,
     isPublished: true,
@@ -65,7 +65,8 @@ async function createCourse() {
     const result = await course.save();
     console.log(result);
   } catch (ex) {
-    console.log(ex.message);
+    for (Field in ex.errors) 
+      console.log(ex.errors[Field].message);
   }
 }
 
