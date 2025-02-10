@@ -17,22 +17,18 @@ const Course = mongoose.model(
   "Course",
   new mongoose.Schema({
     name: String,
-    // author: authorSchema, // Use the authorSchema directly instead of redefining the structure
-    author: {
-      type: authorSchema,
-      required: true,
-    },
+    authors: [authorSchema],
   })
 );
 
-async function createCourse(name, author) {
+async function createCourse(name, authors) {
   const course = new Course({
     name,
-    author: {
+    authors: authors.map((author) => ({
       name: author.name,
-      bio: author.bio || "No bio available", // Provide defaults for optional fields
+      bio: author.bio || "No bio available",
       website: author.website || "No website available",
-    },
+    })),
   });
 
   const result = await course.save();
@@ -61,18 +57,38 @@ async function listCourses() {
 //   }
 // }
 
-// Example usage with more complete author data
-// createCourse("Node Course", { name: "Mosh" });
-
-async function updateAuthor(courseId) {
-  const course = await Course.updateMany(
-    { _id: courseId },
-    {
-      $unset: {
-        author: "",
-      },
-    }
-  );
+async function addAuthor(courseId, author) {
+  const course = await Course.findById(courseId);
+  course.authors.push(author);
+  course.save();
 }
 
-updateAuthor("67a75bc31bc5cc6453bbce7d");
+// addAuthor("67aa0d36e8aebc4dd55abe62", { name: "Avadhut" });
+
+async function removeAuthor(courseId, authorId) {
+  const course = await Course.findByIdAndUpdate(
+    courseId, 
+    { $pull: { authors: { _id: authorId } } },
+    { new: true }
+  );
+  
+  console.log(course);
+}
+
+removeAuthor("67aa0d36e8aebc4dd55abe62", "67aa0f6ac79801fb2fea5595");
+
+// Example usage with more complete author data
+// createCourse("Node Course", [{ name: "Mosh" }, { name: "John" }]);
+
+// async function updateAuthor(courseId) {
+//   const course = await Course.updateMany(
+//     { _id: courseId },
+//     {
+//       $unset: {
+//         author: "",
+//       },
+//     }
+//   );
+// }
+
+// updateAuthor("67a75bc31bc5cc6453bbce7d");
